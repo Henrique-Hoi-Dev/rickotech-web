@@ -3,5 +3,6 @@ import axios from 'axios';
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_DEFAULT,
 });
+console.log("conect", process.env.REACT_APP_API_DEFAULT)
 
 export default api;
