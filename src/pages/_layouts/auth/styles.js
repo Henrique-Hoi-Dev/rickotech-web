@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
 
   background-size: contain;
   background-repeat: no-repeat;
+
+  @media (max-width: 980px) {
+    background: none;
+    width: 100%;
+  }
 `;
 
 export const Content = styled.div`
@@ -135,6 +140,30 @@ export const Content = styled.div`
       &:hover {
         opacity: 1;
       }
+    }
+  }
+
+  @media (max-width: 980px) {
+    width: 100%;
+
+    input {
+      width: 40%;
+    }
+
+    button {
+      width: 40%;
+    }
+  }
+
+  @media (max-width: 560px) {
+    width: 100%;
+
+    input {
+      width: 90%;
+    }
+
+    button {
+      width: 90%;
     }
   }
 `;
