@@ -18,7 +18,7 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <Router history={history}>
+        <Router history={history} basename={'https://web-rickotech.herokuapp.com/'}>
           <Routes />
           <ToastContainer autoClose={3000} />
           <GlobalStyle />
