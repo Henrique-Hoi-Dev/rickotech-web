@@ -6,7 +6,8 @@ import { moneyMask } from '../../../util/mask';
 import { connect } from 'react-redux';
 import { 
   findAllFinancialBoxRequest,
-  resetFormularioCaixa } from '../../../store/modules/financialBox/actions';
+  resetFormularioCaixa 
+} from '../../../store/modules/financialBox/actions';
 
 import * as moment from 'moment';
 import ModalCaixaInfo from '../ModalCaixaInfo/modalCaixaInfo';
@@ -42,7 +43,9 @@ const ListCaixa = ({ financialBoxList, ids }) => {
         id={caixaClosedId}
       />   
       <h2>Histórico do caixa</h2>
-      <table className="table-list">
+
+      {(financialBoxList?.length > 0) && (
+        <table className="table-list">
           <thead>
             <tr className="table-title">
               <td>Funcionario</td>
@@ -83,7 +86,14 @@ const ListCaixa = ({ financialBoxList, ids }) => {
             ))}
           </tbody>
         </table>
-      </Container>  
+      )}
+
+      {financialBoxList?.length === 0 && (
+        <div className="error">
+          <h3>Nenhum caixa aberto foi encontrado!</h3>
+        </div>
+      )}
+    </Container>  
   );
 }
 
