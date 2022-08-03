@@ -1,5 +1,6 @@
-import { Grid, Modal as MuiModal } from "@mui/material";
 import React from "react";
+import { Grid, Modal as MuiModal } from "@mui/material";
+import { useMediaQuery } from "react-responsive";
 
 const Modal = (
   {
@@ -10,7 +11,10 @@ const Modal = (
     onSubmit,
     height,
     maxWidth,
+    maxHeight
   }) => {
+  const isDesktop = useMediaQuery({ maxWidth: "700px" });
+  // const isSmallDesktop = useMediaQuery({ maxWidth: "910px" });
 
   return (
     <MuiModal open={open} onClose={onClose} onBackdropClick={onClose}>
@@ -23,7 +27,8 @@ const Modal = (
           transform: "translate(-50%, -50%)",
           backgroundColor: "#4d4c4c",
           height: `${height ? height : "auto"}`,
-          maxWidth: `${maxWidth ? maxWidth : "700px"}`,
+          maxHeight: `${(isDesktop ? "500px" : maxHeight ?? "700px")}`,
+          maxWidth: `${(isDesktop ? "400px" : maxWidth ?? "700px")}`,
           padding: "10px",
           borderRadius: "20px",
         }}

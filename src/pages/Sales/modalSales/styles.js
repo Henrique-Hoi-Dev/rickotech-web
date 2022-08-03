@@ -162,4 +162,24 @@ export const Container = styled.div`
       height: 10px;
     }
   }
+
+  @media screen and (max-width: 700px) {
+    .header {
+      width: 225px;
+
+      h1 {
+        margin: 23px 0px 0 0;
+      }
+
+      svg {
+        margin-right: 20px;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 `;

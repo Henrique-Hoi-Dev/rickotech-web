@@ -110,11 +110,11 @@ export const Container = styled.div`
       box-shadow: none;
 
       .form-table {
-        overflow-y: scroll;        
+        overflow-x: scroll;        
 
         table {
           background: #353535;
-
+          margin-left: 380px;
           td {
             min-width: 80px;
           }

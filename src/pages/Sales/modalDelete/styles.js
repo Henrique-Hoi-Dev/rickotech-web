@@ -42,6 +42,11 @@ export const Container = styled.div`
     margin-left: 8px;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 700px) {
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 `;

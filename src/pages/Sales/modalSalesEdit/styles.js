@@ -151,4 +151,23 @@ export const Container = styled.div`
       height: 10px;
     }
   }
+
+  @media screen and (max-width: 700px) {
+    .header {
+      width: 300px;
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .status {
+        height: 100px;
+      }
+    }
+  }
 `;
