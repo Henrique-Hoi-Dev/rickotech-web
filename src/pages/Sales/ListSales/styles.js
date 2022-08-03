@@ -104,14 +104,20 @@ export const Container = styled.div`
     }
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .header-main {
       background: none;
       box-shadow: none;
 
       .form-table {
+        overflow-y: scroll;        
+
         table {
           background: #353535;
+
+          td {
+            min-width: 80px;
+          }
         }
       }
     }

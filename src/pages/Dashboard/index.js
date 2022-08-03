@@ -8,9 +8,9 @@ import { Container } from './styles'
 export default function Dashboard() {
   
   return (
-      <Container> 
-        <Card />
-        <ListSales />
-      </Container>
+    <Container> 
+      <Card />
+      <ListSales />
+    </Container>
   );
 }
