@@ -12,19 +12,19 @@ import { FcHighPriority } from 'react-icons/fc';
 import { Container } from './styles';
 import { formatMoney, unmaskMoney } from '../../../../util/mask';
 
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import CloseIcon from '@mui/icons-material/Close';
 import AvatarInput from '../Avatarinput';
 import Modal from '../../../../components/modal/modal';
 import InputAutocomplete from '../../../../components/select/select';
 
-const schema = Yup.object().shape({
-  name: Yup.string()
-    .required('Este compo é obrigatório.')
-    .max(100, 'No máximo 100 caracteres'),
-  quantity: Yup.number().required('Este compo é obrigatório.'),
-  price: Yup.number().required('Este compo é obrigatório.'),
-});
+// const schema = Yup.object().shape({
+//   name: Yup.string()
+//     .required('Este compo é obrigatório.')
+//     .max(100, 'No máximo 100 caracteres'),
+//   quantity: Yup.number().required('Este compo é obrigatório.'),
+//   price: Yup.number().required('Este compo é obrigatório.'),
+// });
 
 export default function ModalRegistrationProduct(
   {
@@ -109,7 +109,7 @@ export default function ModalRegistrationProduct(
         <div className="header-main">
           <Formik
             onSubmit={handleSubmit}
-            validationSchema={schema}
+            // validationSchema={schema}
             enableReinitialize={true}
             initialValues={form}
           >

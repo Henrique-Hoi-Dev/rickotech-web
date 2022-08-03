@@ -43,10 +43,10 @@ export const Container = styled.div`
       font: 1rem Archivo;
       cursor: pointer;
       border-radius: 0.5rem;
-      height: 2.2rem;
+      height: 2.7rem;
       width: 215px;
       padding: 0 1rem;
-      margin: 7px 0px 10px;
+      margin: 12px 0px 10px;
       border: 2px solid #8945de;
       font-weight: bold;
       color: #9c98a6;
@@ -58,7 +58,7 @@ export const Container = styled.div`
       cursor: pointer;
       border-radius: 0.5rem;
       width: 13.5rem;
-      height: 2.2rem;
+      height: 2.7rem;
       padding: 0 1rem;
       margin: 7px 0px 10px;
       border: 2px solid #8945de;

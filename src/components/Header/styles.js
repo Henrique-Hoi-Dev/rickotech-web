@@ -7,7 +7,7 @@ export const PageHeader = styled.div`
   margin-top: 80px;
 
   .header {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -17,12 +17,13 @@ export const PageHeader = styled.div`
     margin: 1rem auto -5rem;
 
     .img {
-      margin-right: 100px;
+      margin-right: 30px;
     }
 
     a {
       height: 3.2rem;
       transition: opacity 0.2s;
+      margin-left: 10px;
 
       :hover {
         opacity: 0.6;

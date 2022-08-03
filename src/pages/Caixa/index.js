@@ -30,7 +30,7 @@ const Caixa = ({ financialBoxListOpen }) => {
 
   const handleSubmit = async (values) => {
     try {
-      dispatch(createFinancialBoxRequest(id, values));
+      dispatch(createFinancialBoxRequest(id, data));
       dispatch(resetFormulario());
     } catch {
       toast.error('Error check data');
@@ -50,12 +50,12 @@ const Caixa = ({ financialBoxListOpen }) => {
               <Input
                 name="open_caixa"
                 type="date"
-                value={data?.date}
+                value={data?.open_caixa ?? ""}
                 onChange={(ev) => {
                   ev.persist();
                   setData((state) => ({
                     ...state,
-                    date: ev.target.value,
+                    open_caixa: ev.target.value,
                   }));
                 }}
               />
@@ -64,7 +64,7 @@ const Caixa = ({ financialBoxListOpen }) => {
               <label>Valor</label>
               <Input
                 name="value_open"
-                value={formatMoney(data?.value_open)}
+                value={formatMoney(data?.value_open) ?? ''}
                 onChange={(ev) => {
                   ev.persist();
                   setData((state) => ({
