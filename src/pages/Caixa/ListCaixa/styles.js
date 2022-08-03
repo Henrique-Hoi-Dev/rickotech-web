@@ -44,5 +44,22 @@ export const Container = styled.div`
       text-align: center;
     }
   }
+  .error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    margin-top: 29px;
 
+    background: #353535;
+    border-radius: 0.8rem;
+    box-sizing: border-box;
+
+    h3 {
+      font-weight: bold;
+      font-size: 20px;
+      color: #fff;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    }
+  }
 `;
