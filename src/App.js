@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ToastContainer } from 'react-toastify';
@@ -18,7 +18,7 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <Router history={history} basename={'https://web-rickotech.herokuapp.com/'}>
+        <Router history={history} basename={'/'}>
           <Routes />
           <ToastContainer autoClose={3000} />
           <GlobalStyle />
