@@ -2,7 +2,7 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
+  "homepage": "/ricktech",
   "dependencies": {
     "-": "^0.0.1",
     "@emotion/react": "^11.4.1",
