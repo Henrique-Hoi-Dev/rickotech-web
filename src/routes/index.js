@@ -17,10 +17,10 @@ function RoutesApp() {
     <Switch>
       <Route path="/" exact component={props => <SignIn {...props} />} />
       <Route path="/register" exact component={props => <SignUp {...props} />} />
+      <Route isPrivate path="/dashboard" exact component={props => <Dashboard {...props} />} />
       <Route isPrivate path="/perfil/:id" exact component={props => <Profile {...props} />} />
       <Route isPrivate path="/adress/:id" exact component={props => <Adress {...props} />} />
       <Route isPrivate path="/caixa/:id" exact component={props => <Caixa {...props} />} />
-      <Route isPrivate path="/dashboard" exact component={props => <Dashboard {...props} />} />
       <Route isPrivate path="/listProducts" exact component={props => <ListProduct {...props} />} />
       <Route isPrivate path="/listServico" exact component={props => <ListService {...props} />} />
     </Switch>
