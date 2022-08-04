@@ -112,16 +112,16 @@ const ModalWorks = ({ showModal, setShowModal, financialBoxListOpen,  }) => {
                     ))}
                   </Field>
 
-                  <label htmlFor="data_serviço">Dia do serviço feito</label>
+                  <label htmlFor="date_service">Dia do serviço feito</label>
                   <Field
                     name="date_service"
                     type="date"
-                    value={data?.date}
+                    value={data?.date_service}
                     onChange={(ev) => {
                       ev.persist();
                       setData((state) => ({
                         ...state,
-                        date: ev.target.value,
+                        date_service: ev.target.value,
                       }));
                     }}
                   />
