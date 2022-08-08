@@ -79,7 +79,7 @@ export function* UpdateFinancialBox({ payload }) {
     const fecharCaixa = { close_caixa, status }
 
     if (close_caixa === '') {
-      toast.info('Falta data para fechamento!');
+      toast.info('Adicione data para fechamento do caixa!');
     }
 
     const res = yield call(api.put, `/financialBox/${payload.id}`, fecharCaixa);

@@ -27,4 +27,16 @@ export const Container = styled.div`
       display: none;
     }
   }
+
+  @media (max-width: 700px) {
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;      
+
+      h4 {
+        margin-top: 10px;
+      }
+    }
+  }
 `;

@@ -22,7 +22,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
 export default function Home() {
-  const { name, company_position, avatar, id } = useSelector((state) => state.user.profile);
+  const data = useSelector((state) => state.user.profile);
 
   const [state, setState] = useState({
     top: false,
@@ -59,7 +59,7 @@ export default function Home() {
         </ListItem>
         <ListItem>
           <PointOfSaleIcon sx={{ marginRight: '10px' }} />{' '}
-          <Link style={{ color: '#9c98a6' }} to={`/caixa/${id}`}>
+          <Link style={{ color: '#9c98a6' }} to={`/caixa/${data?.id}`}>
             Caixa
           </Link>
         </ListItem>
@@ -146,15 +146,15 @@ export default function Home() {
         <Perfil>
           <nav>
             <h4>Profissional:</h4>
-            <strong>{name}</strong>
+            <strong>{data?.name}</strong>
             <h4>Cargo:</h4>
-            <strong>{company_position ? company_position : 'sem cargo'}</strong>
+            <strong>{data?.company_position ? data?.company_position : 'sem cargo'}</strong>
           </nav>
           <img
             onClick={handleClick}
             src={
-              avatar
-                ? avatar.url
+              data?.avatar
+                ? data?.avatar.url
                 : 'https://i.pinimg.com/474x/a6/70/05/a67005e9bf90bc529088205650784bba.jpg'
             }
             alt="avatar"
@@ -196,7 +196,7 @@ export default function Home() {
           >
             <MenuItem className={classes.menu}>
               <Avatar sx={{ background: '#353535' }} />
-              <Link className={classes.root} to={`/perfil/${id}`}>
+              <Link className={classes.root} to={`/perfil/${data?.id}`}>
                 Profile
               </Link>
             </MenuItem>

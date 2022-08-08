@@ -10,7 +10,7 @@ export const currencyFormat = (num) => {
 }
 
 export const capitalizeFirst = (str) => {
-  var subst = str.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+  var subst = str?.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
   return subst;
 }
 

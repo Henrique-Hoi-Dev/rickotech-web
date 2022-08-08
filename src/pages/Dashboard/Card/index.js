@@ -24,7 +24,7 @@ export default function Card() {
         <hr />
         <div className="value">
           <h2>Valor vendas</h2>
-          <strong>{moneyMask(card.totalOrder || [0])}</strong>
+          <strong>{moneyMask(card?.totalOrder || [0])}</strong>
         </div>
         <hr />
       </div>
@@ -33,7 +33,7 @@ export default function Card() {
         <hr />
         <div className="value">
           <h2>Valor produtos</h2>
-          <strong>{moneyMask(card.totalProduct || [0])}</strong>
+          <strong>{moneyMask(card?.totalProduct || [0])}</strong>
         </div>
         <hr />
       </div>
@@ -42,7 +42,7 @@ export default function Card() {
         <hr />
         <div className="value">
           <h2>Produtos em estoque</h2>
-          <strong>{card.totalQuantityProduct}</strong>
+          <strong>{card?.totalQuantityProduct}</strong>
         </div>
         <hr />
       </div>
@@ -51,7 +51,7 @@ export default function Card() {
         <hr />
         <div className="value">
           <h2>Valor serviços</h2>
-          <strong>{moneyMask(card.totalService || [0])}</strong>
+          <strong>{moneyMask(card?.totalService || [0])}</strong>
         </div>
         <hr />
       </div>

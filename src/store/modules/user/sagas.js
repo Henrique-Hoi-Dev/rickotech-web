@@ -1,10 +1,9 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
-
-import api from '../../../services/api';
-
 import { updateProfileSuccess } from './actions';
+
 import history from '../../../services/history';
+import api from '../../../services/api';
 
 export function* updateProfile({ payload }) {
   try {
@@ -15,7 +14,8 @@ export function* updateProfile({ payload }) {
       company_position, 
       cpf, 
       date_birth, 
-      ...rest } = payload.data;
+      ...rest 
+    } = payload.data;
 
     const profile = { 
       name, 

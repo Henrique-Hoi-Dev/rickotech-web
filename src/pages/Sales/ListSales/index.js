@@ -4,6 +4,7 @@ import { Container } from './styles'
 import { FcEmptyTrash } from 'react-icons/fc'
 import { moneyMask } from '../../../util/mask'
 import { findAllSalesRequest } from '../../../store/modules/sales/actions'
+import { useMediaQuery } from 'react-responsive'
 
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits'
 import MouseOverPopover from '../../../components/MouseOverPopover'
@@ -12,9 +13,12 @@ import ModalSalesEdit from '../modalSalesEdit/modalSales'
 import ModalDelete from '../modalDelete/modalDelete'
 import img from '../../../assets/empty.png'
 import ModalSales from '../modalSales/modalSales'
+import CardSales from '../CardSales'
 
 const ListSales = ({ salesList }) => {
   const dispatch = useDispatch()
+
+  const isMobile = useMediaQuery({ maxWidth: "700px" });
 
   const [showModal, setShowModal] = useState(false)
   const [showModalSales, setShowModalSales] = useState(false)
@@ -23,7 +27,7 @@ const ListSales = ({ salesList }) => {
   const [salesId, setSalesId] = useState('')
   const [DeleteId, setDeleteId] = useState('')
 
-  const user = useSelector((state) => state.user.profile)
+  const user = useSelector((state) => state)
 
   useEffect(() => {
     if (salesId) {
@@ -36,8 +40,8 @@ const ListSales = ({ salesList }) => {
   }, [salesId, setSalesId])
 
   useEffect(() => {
-    if (user.id) {
-      dispatch(findAllSalesRequest(user.id))
+    if (user?.id) {
+      dispatch(findAllSalesRequest(user?.id))
     }
   }, [dispatch, user])
 
@@ -62,7 +66,7 @@ const ListSales = ({ salesList }) => {
           />
         </div>
         <div className="form-table">
-          {salesList?.length > 0 && ( 
+          {salesList?.length > 0 && !isMobile && ( 
             <table>
               <thead>
                 <tr>
@@ -96,34 +100,34 @@ const ListSales = ({ salesList }) => {
               </thead>
               <tbody>
                 {[].concat(salesList).map((sales, i) => (
-                  <tr key={i} value={sales.id}>
-                    <td>{sales.user.name}</td>
-                    <td>{sales.name_product}</td>
-                    <td>{sales.product_quantity}</td>
-                    <td>{moneyMask(sales.price_total || [0])}</td>
-                    <td>{sales.discount}%</td>
+                  <tr key={i} value={sales?.id}>
+                    <td>{sales?.user.name}</td>
+                    <td>{sales?.name_product}</td>
+                    <td>{sales?.product_quantity}</td>
+                    <td>{moneyMask(sales?.price_total || [0])}</td>
+                    <td>{sales?.discount}%</td>
                     <td
                       style={{
                         fontWeight: 'bold',
                         color:
-                          (sales.status === 'open' && '#2ecc71') ||
-                          (sales.status === 'closed' && 'red') ||
-                          (sales.status === 'sold' && 'orange'),
+                          (sales?.status === 'open' && '#2ecc71') ||
+                          (sales?.status === 'closed' && 'red') ||
+                          (sales?.status === 'sold' && 'orange'),
                       }}
                     >
-                      {sales.status}
+                      {sales?.status}
                     </td>
                     <td className="avatar">
                       <img
                         src={
-                          sales.products.avatar ? sales.products.avatar.url : img
+                          sales?.products?.avatar ? sales?.products?.avatar?.url : img
                         }
                         alt="avatar"
                         className="avatar"
                       />
                     </td>
                     <td className="edit">
-                      {sales.status === 'open' && (
+                      {sales?.status === 'open' && (
                         <MouseOverPopover
                           children={
                             <ProductionQuantityLimitsIcon
@@ -136,13 +140,13 @@ const ListSales = ({ salesList }) => {
                           text={'Editar / Finalizar Venda'}
                         />
                       )}
-                      {(sales.status === 'open' || sales.status === 'sold') && (
+                      {(sales?.status === 'open' || sales?.status === 'sold') && (
                         <MouseOverPopover
                           children={
                             <FcEmptyTrash
                               onClick={() =>
                                 setModalShowDelete(!showModalDelete) ||
-                                setDeleteId(sales.id)
+                                setDeleteId(sales?.id)
                               }
                             />
                           }
@@ -155,6 +159,13 @@ const ListSales = ({ salesList }) => {
               </tbody>
             </table>            
           )}
+          
+          {isMobile && [].concat(salesList).map((sales, i) => (
+            <CardSales 
+              key={i}
+              props={sales}
+            />
+          ))}          
 
           {salesList?.length === 0 && (
             <div className="error">

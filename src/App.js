@@ -1,17 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ToastContainer } from 'react-toastify';
-
-import './config/ReactotronConfig';
-
-import history from './services/history';
 import { store, persistor } from './store';
 
+import history from './services/history';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 
+import './config/ReactotronConfig';
 import 'assets/css/material-dashboard-react.css?v=1.9.0';
 
 function App() {

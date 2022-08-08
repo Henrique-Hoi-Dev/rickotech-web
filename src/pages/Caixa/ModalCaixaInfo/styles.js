@@ -102,4 +102,25 @@ export const Container = styled.div`
       transition: all 0.5s;
     }
   }
+
+  @media screen and (max-width: 700px) {
+    .header-main {
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .info1 {
+          margin-left: 35px;
+        } 
+        .info2 {
+          margin-left: 0;
+        } 
+      }
+    }
+
+    .button {
+      margin-top: 20px;
+    }
+  }
 `;

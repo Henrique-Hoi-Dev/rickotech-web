@@ -152,5 +152,29 @@ export const Container = styled.div`
   }
 
   @media (max-width: 700px) {
+    .header-main {
+      #container-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer {
+        display: flex;
+        flex-direction: column;
+      }
+
+      p { 
+        margin: 0 0 31px 13px;
+      }
+
+      .campo3 ul {
+        margin-right: 30px;
+      }
+
+      .form-input svg {
+        margin: 15px 0px 13px 0px;
+      }
+    }
   }
 `;
