@@ -83,7 +83,6 @@ export default function Adress() {
  return (
    <Container>
     <h2>Endereço</h2>
-    <label htmlFor="adress">
      <Form initialData={form} onSubmit={handleSubmit} >
         <Input  name="cep" placeholder="CEP" onBlur={(ev) => onBlurCep(ev)} />
         <Input  name="logradouro" placeholder="Logradouro" />
@@ -94,10 +93,9 @@ export default function Adress() {
         <Select name="uf" options={estados} placeholder="UF" />
         <hr/>
         <button className="adresses" type="submit">
-          Atulizar seu endereço
+          Atulizar endereço
         </button>
      </Form>
-     </label>
    </Container>
   ); 
 }

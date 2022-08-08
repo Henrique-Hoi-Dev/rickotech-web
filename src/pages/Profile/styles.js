@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  min-width: 530px;
   margin: 50px auto;
 
   form {
@@ -13,12 +12,43 @@ export const Container = styled.div`
     .but {
       display: flex;
       justify-content: space-between;
+      
+      button {
+        margin: 4px 19px 0 19px;
+        width: 200px;
+        height: 44px;
+        background: #8945de;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: background 0.2s;
 
+        &:hover {
+          background: ${darken(0.03, '#8945de')};
+          transform: scale(1.1);
+          transition: all 0.5s;
+        }
+      }
+
+    a {
+      color: #000;
+      margin-top: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      opacity: 0.8;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
 
   h2 {
     padding: 0.5rem;
+    margin-bottom: 10px;
     font-weight: bold;
 
     color: #9c98a6;
@@ -73,34 +103,10 @@ export const Container = styled.div`
     margin: 10px 0 20px;
   }
 
-  button {
-    margin: 5px 0 0;
-    width: 250px;
-    height: 44px;
-    background: #8945de;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: background 0.2s;
-
-    &:hover {
-      background: ${darken(0.03, '#8945de')};
-      transform: scale(1.1);
-      transition: all 0.5s;
-    }
-  }
-
-  a {
-    color: #000;
-    margin-top: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
+  @media screen and (max-width: 600px) {
+    .but {
+      display: flex;
+      flex-direction: column;
     }
   }
 `;

@@ -2,12 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input, Select } from '@rocketseat/unform';
 import { Link } from 'react-router-dom'
-
 import { updateProfileRequest } from '../../store/modules/user/actions';
+import { Container } from './styles';
 
 import AvatarInput from './AvatarInput';
-
-import { Container } from './styles';
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -39,17 +37,17 @@ export default function Profile() {
         />
         <Select name="company_position" options={cargos} placeholder="Cargos" />
         <hr />
-        <h2>Mudar para nova senha</h2>
-        <Input type="password" name="oldPassword" placeholder="Sua Senha" />
-        <Input type="password" name="password" placeholder="Sua nova senha" />
+        <h2>Nova senha</h2>
+        <Input type="password" name="oldPassword" placeholder="Senha" />
+        <Input type="password" name="password" placeholder="Nova senha" />
         <Input
           type="password"
           name="confirmPassword"
-          placeholder="Confirme sua nova senha"
+          placeholder="Confirme nova senha"
         />
         <hr />
         <div className="but">
-          <button type="submit">Atualizar seu perfil</button>
+          <button type="submit">Atualizar perfil</button>
           <button type="button">
             <Link to={`/adress/${profile.id}`}> 
               Adicionar endereço
