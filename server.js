@@ -10,7 +10,8 @@ app.get('/', function (req, res) {
 });
 
 app.get("/dashboard", function(req, res){
-  res.render("dashboard");
+  // res.render("dashboard");
+  res.sendFile(resolve(__dirname, 'build', 'index.html'));
 });
 
 app.listen(process.env.PORT, (err) => {
