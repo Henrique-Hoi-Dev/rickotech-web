@@ -9,8 +9,25 @@ app.get('/', function (req, res) {
   res.sendFile(resolve(__dirname, 'build', 'index.html'));
 });
 
+app.get("/register", function(req, res){
+  res.sendFile(resolve(__dirname, 'build', 'index.html'));
+});
 app.get("/dashboard", function(req, res){
-  // res.render("dashboard");
+  res.sendFile(resolve(__dirname, 'build', 'index.html'));
+});
+app.get("/perfil/:id", function(req, res){
+  res.sendFile(resolve(__dirname, 'build', 'index.html'));
+});
+app.get("/adress/:id", function(req, res){
+  res.sendFile(resolve(__dirname, 'build', 'index.html'));
+});
+app.get("/caixa/:id", function(req, res){
+  res.sendFile(resolve(__dirname, 'build', 'index.html'));
+});
+app.get("/listProducts", function(req, res){
+  res.sendFile(resolve(__dirname, 'build', 'index.html'));
+});
+app.get("/listServico", function(req, res){
   res.sendFile(resolve(__dirname, 'build', 'index.html'));
 });
 
