@@ -1,5 +1,5 @@
 const express = require('express')
-const { resolve } = require('path')
+const { resolve, join } = require('path')
 
 const app = express()
 
@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 });
 
 app.get("/dashboard", function(req, res){
-  res.render("dashboard");
+  res.render(join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(process.env.PORT, (err) => {
