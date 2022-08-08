@@ -168,6 +168,10 @@ export const Container = styled.div`
         margin: 0 0 31px 13px;
       }
 
+      .campo4 {
+        margin-right: 20px;
+      }
+
       .campo3 ul {
         margin-right: 30px;
       }

@@ -122,22 +122,21 @@ export const Container = styled.div`
   }
 
   @media (max-width: 700px) {
-    #container-input {
-      max-width: 1100px;
+    .header-main {
+      #container-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }      
+    }
 
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 5px 455px 1fr;
-      grid-template-areas: 'name name name';
-    }
-    .campo {
-      grid-area: campo2;
-    }
-    .campo5 {
-      grid-area: campo5;
-    }
     .buttons-container {
-      grid-area: button;
+      display: flex;
+      flex-direction: column;
+
+      button {
+        margin: 5px 12px 0;
+      }
     }
   }
 `;

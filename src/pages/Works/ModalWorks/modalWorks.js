@@ -46,7 +46,7 @@ const ModalWorks = ({ showModal, setShowModal, financialBoxListOpen,  }) => {
           sx={{
             width: '1.5em',
             height: '1.5em',
-            margin: '20px 0 -10px 27px',
+            margin: '20px 0 -10px 62px',
             cursor: 'pointer',
             boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.5)',
             borderRadius: '50%',

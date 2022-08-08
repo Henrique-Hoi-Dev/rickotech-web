@@ -8,7 +8,6 @@ import ModalCaixaInfo from '../../ModalCaixaInfo/modalCaixaInfo';
 import moment from 'moment';
 
 export default function Card({ props }) {
-console.log(props)
 
   const [showModal, setModalShow] = useState(false);
   const [caixaOpenId, setCaixaOpenId] = useState('');

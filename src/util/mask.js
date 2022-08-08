@@ -15,6 +15,8 @@ export const capitalizeFirst = (str) => {
 }
 
 export const moneyMask = (value) => {
+  value = value?.toString().replace('.', '').replace(',', '').replace(/\D/g, '');
+  
   if (value) {
     value = value / 100;
     const result = new Intl.NumberFormat('pt-BR', {

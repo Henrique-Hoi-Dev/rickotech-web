@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import * as moment from 'moment';
-import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
-
 import { FcEmptyTrash } from 'react-icons/fc';
 import { moneyMask } from '../../../util/mask';
-
 import { findAllServiceRequest } from '../../../store/modules/works/actions';
-  
+import { Container } from './styles';
+import { useMediaQuery } from 'react-responsive';  
+
+import * as moment from 'moment';
+import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
 import ModalWorks from '../ModalWorks/modalWorks';
 import ModalDelete from '../modalDelete/modalDelete';
 import Header from '../../../components/Header';
-
 import MouseOverPopover from '../../../components/MouseOverPopover';
-
-import { Container } from './styles';
+import Card from './Card';
 
 const ListSales = ({ worksList }) => {
   const dispatch = useDispatch();
 
+  const isMobile = useMediaQuery({ maxWidth: "900px" });
+
   const [showModal, setShowModal] = useState(false)
   const [showModalDelete, setModalShowDelete] = useState(false)
 
-  const [productDeleteId, setproductDeleteId] = useState('')
+  const [worksDeleteId, setWorksDeleteId] = useState('')
 
   const user = useSelector((state) => state.user.profile);
 
@@ -55,7 +55,7 @@ const ListSales = ({ worksList }) => {
           />
         </div>
         <form className="form-table">
-          {worksList?.length > 0 && (
+          {!isMobile && worksList?.length > 0 && (
             <table className="table-list">
               <thead>
                 <tr className="table-title">
@@ -78,7 +78,7 @@ const ListSales = ({ worksList }) => {
                         children={
                           <FcEmptyTrash
                             onClick={() =>
-                              setproductDeleteId(servico.id) ||
+                              setWorksDeleteId(servico.id) ||
                               setModalShowDelete(true)
                             }
                           />
@@ -97,15 +97,26 @@ const ListSales = ({ worksList }) => {
               <h3>Nenhum serviço foi encontrado!</h3>
             </div>
           )}
+
+          {isMobile && [].concat(worksList).map((financial, i) => (
+            <Card
+              key={i}
+              props={financial}
+            />
+          ))}
+
         </form>
       </div>
 
-      <ModalWorks showModal={showModal} setShowModal={setShowModal} />
+      <ModalWorks 
+        showModal={showModal} 
+        setShowModal={setShowModal} 
+      />
 
       <ModalDelete
         setShowModal={setModalShowDelete}
         showModal={showModalDelete}
-        ids={productDeleteId}
+        ids={worksDeleteId}
       />
     </Container>
   );

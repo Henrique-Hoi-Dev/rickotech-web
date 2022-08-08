@@ -34,6 +34,7 @@ export const Container = styled.div`
     padding: 0 2.4rem;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 
     table {
       background-color: #4d4c4c;
