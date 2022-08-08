@@ -132,6 +132,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
               <label htmlFor="product_quantity">Quantidade</label>
               <Field
                 name="product_quantity"
+                type="number"
                 value={body?.product_quantity}
                 onChange={handleQuantity}
               />
@@ -155,6 +156,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
               <label htmlFor="discount">Desconto %</label>
               <Field
                 name="discount"
+                type="number"
                 value={body?.discount}
                 onChange={handleDiscount}
               />

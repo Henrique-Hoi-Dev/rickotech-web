@@ -112,6 +112,7 @@ export default function ModalSales({ showModal, setShowModal, ids }) {
               <label htmlFor="discount">% Desconto</label>
               <Field
                 name="discount"
+                type="number"
                 value={body?.discount}
                 onChange={handleDiscount}
               />
@@ -119,6 +120,7 @@ export default function ModalSales({ showModal, setShowModal, ids }) {
               <label htmlFor="product_quantity">Quantidade</label>
               <Field
                 name="product_quantity"
+                type="number"
                 value={body?.product_quantity}
                 onChange={handleQuantity}
               />
