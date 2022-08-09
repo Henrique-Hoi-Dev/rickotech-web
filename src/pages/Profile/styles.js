@@ -59,6 +59,7 @@ export const Container = styled.div`
     background: rgba(0, 0, 0, 0.1);
     padding: 0 15px;
     font: 1rem Archivo;
+    width: 100%;
     border-radius: 0.5rem;
     height: 2.2rem;
     padding: 0 1rem;

@@ -47,7 +47,7 @@ const ListCaixa = ({ financialBoxList, ids }) => {
           setShowModal={setModalShow}
           id={caixaClosedId}
         />   
-        <h2>Histórico do caixa</h2>
+        <h2>Histórico caixa</h2>
 
         {!isMobile && (financialBoxList?.length > 0) && (
           <table className="table-list">

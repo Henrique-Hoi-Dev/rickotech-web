@@ -54,7 +54,7 @@ const ModalCaixaInfo = ({ showModal, setShowModal, id }) => {
             boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.5)',
             borderRadius: '50%',
           }}
-          onClick={onCloseSales}
+          onClick={() => onCloseSales()}
         />
         <Form onSubmit={handleSubmit} initialData={form}>
           <div className="header-main">
