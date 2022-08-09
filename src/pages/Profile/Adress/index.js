@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
 import { Form, Input, Select } from '@rocketseat/unform';
 import { useParams } from 'react-router';
-
 import { Container } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { 
   createAdressRequest,
   updateAdressRequest,
   getByIdAdresstRequest } from '../../../store/modules/adress/actions';
+import { Link } from 'react-router-dom';
 
 export default function Adress() {
   const dispatch = useDispatch();
+
   const { form } = useSelector((state) => state.adress);
   const { id } = useParams();
 
@@ -82,8 +83,8 @@ export default function Adress() {
 
  return (
    <Container>
-    <h2>Endereço</h2>
      <Form initialData={form} onSubmit={handleSubmit} >
+        <h2>Endereço</h2>
         <Input  name="cep" placeholder="CEP" onBlur={(ev) => onBlurCep(ev)} />
         <Input  name="logradouro" placeholder="Logradouro" />
         <Input  name="complemento" placeholder="Complemento" />
@@ -92,9 +93,17 @@ export default function Adress() {
         <Input  name="cidade" placeholder="Cidade" />
         <Select name="uf" options={estados} placeholder="UF" />
         <hr/>
-        <button className="adresses" type="submit">
-          Atulizar endereço
-        </button>
+        <div className="but">
+          <button className="adresses" type="submit">
+            Atulizar endereço
+          </button>
+
+          <button type="button" className="adresses">
+            <Link to={`/perfil/${id}`}> 
+              voltar...
+            </Link>
+          </button>          
+        </div>
      </Form>
    </Container>
   ); 

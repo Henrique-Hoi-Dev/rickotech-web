@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 export const Container = styled.div`
   margin: 50px auto;
@@ -16,12 +15,14 @@ export const Container = styled.div`
 
   form {
     display: flex;
+    align-items: center;
     flex-direction: column;
     margin-top: 10px;
 
     input {
       background: rgba(0, 0, 0, 0.1);
       padding: 0 15px;
+      width: 500px;
       font: 1rem Archivo;
       border-radius: 0.5rem;
       height: 2.2rem;
@@ -43,27 +44,45 @@ export const Container = styled.div`
       margin: 10px 0 20px;
     }
 
-    .adresses {
-      width: 200px;
-      margin-left: 5px;
-      height: 44px;
-      background: #8945de;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: background 0.2s;
+    .but {
+      display: flex;
+      justify-content: space-between;
 
-        &:hover {
-          background: ${darken(0.03, '#333')};
-          transform: scale(1.1);
-          transition: all 0.5s;
+      .adresses {
+        margin: 4px 19px 0 19px;
+        width: 200px;
+        color: #fff;
+        margin-left: 5px;
+        height: 44px;
+        background: #8945de;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: background 0.2s;
+
+        a {
+          color: #fff;
+          margin-top: 15px;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 16px;
+          opacity: 0.8;
         }
-      }
+
+          &:hover {
+            transform: scale(1.1);
+            transition: all 0.5s;
+          }
+        }
+    }
+    
+
     
       select {
         font: 1rem Archivo;
         border-radius: 0.5rem;
+        width: 500px;
         height: 2.2rem;
         padding: 0 1rem;
         margin: 0 0 1rem;
@@ -80,6 +99,14 @@ export const Container = styled.div`
    }
 
   @media screen and (max-width: 600px) {
+    form {
+      input {
+        width: 300px;
+      }
+      select {
+        width: 300px;
+      }
+    }
     width: 300px;
   }
 `;
