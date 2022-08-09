@@ -26,11 +26,13 @@ export default function Card({ props }) {
     <Container>
       <div className="cards">
         <div className="area-1">
+          <hr />
           <h2>Funcionario</h2>
           <strong>{props?.user?.name}</strong>
         </div>
 
         <div className="area-2">
+          <hr />
           <h2>Abertura</h2>
           <strong>{moment(props?.open_caixa).format('DD/MM/YYYY')}</strong>
         </div>
@@ -57,23 +59,25 @@ export default function Card({ props }) {
           <h2>Valor abertura</h2>
           <strong>{moneyMask(props?.value_open || [0])}</strong>
         </div>
+
         <div className="area-6">
           <hr />
           <h2>Valor vendas</h2>
           <strong>{moneyMask(props?.value_total_sales || [0])}</strong>
-          <hr />
         </div>
+
         <div className="area-7">
           <hr />
           <h2>Valor serviços</h2>
           <strong>{moneyMask(props?.value_total_service || [0])}</strong>
-          <hr />
         </div>
+
         <div className="area-8">
           <hr />
           <h2>Valor total</h2>
           <strong>{moneyMask(props?.value_total || [0])}</strong>
         </div>
+        
         <div className="area-9">
           <hr />
           <h2>Status</h2>
@@ -86,7 +90,6 @@ export default function Card({ props }) {
           >
             {(props?.status === true && 'Fechado') || (props?.status === false && 'Em aberto')}
           </strong>
-          <hr />
         </div>
         <div className="area-5">
           <MouseOverPopover

@@ -80,7 +80,7 @@ export const Container = styled.div`
     }
   }
 
-  button {
+  .button-close {
     background: #6842c2;
     border: 0;
     color: #000;

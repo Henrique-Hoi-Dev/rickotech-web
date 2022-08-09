@@ -10,6 +10,13 @@ export const Container = styled.div`
     flex-direction: column;
     margin-top: 70px;
 
+    hr {
+      border: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 10px 0 20px;
+    }
+
     input {
       background: rgba(0, 0, 0, 0.1);
       padding: 0 15px;
@@ -88,13 +95,6 @@ export const Container = styled.div`
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   }
 
-  hr {
-    border: 0;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 10px 0 20px;
-  }
-
   @media screen and (max-width: 600px) {
     width: 300px;
 
@@ -112,7 +112,5 @@ export const Container = styled.div`
         flex-direction: column;
       }      
     }
-
-
   }
 `;

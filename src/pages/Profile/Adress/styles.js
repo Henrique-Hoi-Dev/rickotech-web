@@ -37,6 +37,24 @@ export const Container = styled.div`
       }
     }
 
+    select {
+      font: 1rem Archivo;
+      border-radius: 0.5rem;
+      width: 500px;
+      height: 2.2rem;
+      padding: 0 1rem;
+      margin: 0 0 1rem;
+      border: 2px solid #8945de;
+      font-weight: bold;
+      color: #9c98a6;
+      background: rgba(0, 0, 0, 0.1);
+
+      ::-webkit-scrollbar {
+        width: 1px;
+        height: 10px;
+      }
+    }
+
     hr {
       border: 0;
       height: 1px;
@@ -75,28 +93,8 @@ export const Container = styled.div`
             transition: all 0.5s;
           }
         }
-    }
-    
-
-    
-      select {
-        font: 1rem Archivo;
-        border-radius: 0.5rem;
-        width: 500px;
-        height: 2.2rem;
-        padding: 0 1rem;
-        margin: 0 0 1rem;
-        border: 2px solid #8945de;
-        font-weight: bold;
-        color: #9c98a6;
-        background: rgba(0, 0, 0, 0.1);
-
-        ::-webkit-scrollbar {
-          width: 1px;
-          height: 10px;
-        }
       }
-   }
+    }
 
   @media screen and (max-width: 600px) {
     form {
@@ -105,6 +103,11 @@ export const Container = styled.div`
       }
       select {
         width: 300px;
+      }
+
+      .but {
+        display: flex;
+        flex-direction: column;
       }
     }
     width: 300px;

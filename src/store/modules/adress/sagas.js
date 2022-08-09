@@ -8,10 +8,10 @@ import { adressFailure, getByIdAdressSuccess } from './actions';
 
 export function* createAdress({ payload }) {
   try {
-    yield call(api.post, `/adress/${payload.id}`, payload.values);
+    yield call(api.post, `/adress/${payload.id}`, payload?.values);
 
     toast.success('Endereço salvo com sucesso!');
-    history.push(`/perfil/${payload.id}`);
+    history.push(`/perfil/${payload?.id}`);
   } catch (err) {
     yield put(adressFailure());
     toast.error('Error em salvar endereço.');
@@ -43,10 +43,10 @@ export function* updateAdress({ payload }) {
     const adresses = { cep, logradouro, complemento, numero, bairro, cidade, uf };
 
     const response = yield call(api.put, `/adress/${payload.id}`, adresses);
-    
+
     toast.success('Endereço atualizado com sucesso!');
+    history.push(`/perfil/${payload.id}`);
     yield put(getByIdAdressSuccess(response.data));
-    history.push(`/perfil/${response.data.user_id}`);
   } catch (err) {
     toast.error('Error em atualizado endereço.');
     yield put(adressFailure());

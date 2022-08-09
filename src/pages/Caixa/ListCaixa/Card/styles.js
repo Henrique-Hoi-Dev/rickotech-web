@@ -6,7 +6,7 @@ export const Container = styled.div`
 
   .cards {
     margin: 0px 0 44px;
-    padding: 7px;
+    padding: 20px;
 
     border-radius: 8px;
 

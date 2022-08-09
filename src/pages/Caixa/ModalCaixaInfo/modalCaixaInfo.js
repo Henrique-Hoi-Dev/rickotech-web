@@ -13,6 +13,7 @@ import { moneyMask } from "../../../util/mask";
 import * as moment from 'moment';
 import CloseIcon from '@mui/icons-material/Close';
 import Modal from "../../../components/modal/modal";
+import { IconButton } from "@material-ui/core";
 
 const ModalCaixaInfo = ({ showModal, setShowModal, id }) => {
   const dispatch = useDispatch(); 
@@ -45,17 +46,25 @@ const ModalCaixaInfo = ({ showModal, setShowModal, id }) => {
   return (
     <Modal open={showModal} onClose={onCloseSales}>
       <Container>
-        <CloseIcon
-          sx={{
-            width: '1.5em',
-            height: '1.5em',
-            margin: '20px',
-            cursor: 'pointer',
+        <IconButton 
+          sx={{  
+            width: '3rem!important',
+            height: '3rem!important',
             boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.5)',
-            borderRadius: '50%',
           }}
           onClick={() => onCloseSales()}
-        />
+        >
+          <CloseIcon
+            sx={{
+              width: '1.5em',
+              height: '1.5em',
+              cursor: 'pointer',
+              background: "#353535",
+              boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.5)',
+              borderRadius: '50%',
+            }}
+          />
+        </IconButton>
         <Form onSubmit={handleSubmit} initialData={form}>
           <div className="header-main">
             <div className="form">
@@ -93,9 +102,7 @@ const ModalCaixaInfo = ({ showModal, setShowModal, id }) => {
 
               <div className="button">
                 {form.status === false && (
-                  <div className="button-close">
-                    <button type="submit">Fechar caixa</button>
-                  </div>
+                  <button className="button-close" type="submit">Fechar caixa</button>
                 )}
               </div>
             </div>
