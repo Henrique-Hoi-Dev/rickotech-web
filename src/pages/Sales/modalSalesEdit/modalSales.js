@@ -36,8 +36,8 @@ export default function ModalSales({ showModal, setShowModal, ids }) {
     setBody((state) => ({
       ...state,
       product_id: formSales?.product_id,
-      product_quantity: formSales?.product_quantity,
-      discount: formSales?.discount,
+      product_quantity: formSales?.product_quantity ?? 0,
+      discount: formSales?.discount ?? 0,
       status: formSales?.status,
     }));
   }, [formSales]);
@@ -51,7 +51,7 @@ export default function ModalSales({ showModal, setShowModal, ids }) {
     ev.persist();
     setBody((state) => ({
       ...state,
-      product_quantity: Number(ev.target.value),
+      product_quantity: ev.target.value,
     }));
   };
 
@@ -59,7 +59,7 @@ export default function ModalSales({ showModal, setShowModal, ids }) {
     ev.persist();
     setBody((state) => ({
       ...state,
-      discount: Number(ev.target.value),
+      discount: ev.target.value,
     }));
   };
 
@@ -112,16 +112,16 @@ export default function ModalSales({ showModal, setShowModal, ids }) {
               <label htmlFor="discount">% Desconto</label>
               <Field
                 name="discount"
-                type="number"
-                value={body?.discount}
+                // type="number"
+                value={body?.discount ?? 0}
                 onChange={handleDiscount}
               />
 
               <label htmlFor="product_quantity">Quantidade</label>
               <Field
                 name="product_quantity"
-                type="number"
-                value={body?.product_quantity}
+                // type="number"
+                value={body?.product_quantity ?? 0}
                 onChange={handleQuantity}
               />
             </div>

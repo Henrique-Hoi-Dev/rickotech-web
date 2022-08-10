@@ -50,8 +50,8 @@ const ModalSales = ({ showModal, setShowModal }) => {
       financial_id: financialBoxListOpen?.id,
       name_product: product?.name,
       price_product: product?.price,
-      product_quantity: product?.quantity,
-      discount: 0,
+      product_quantity: product?.quantity ?? '',
+      discount: 0 ?? '',
       status: 'open',
     }));
   }, [productId, financialBoxListOpen, product, dispatch]);
@@ -73,7 +73,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
     ev.persist();
     setBody((state) => ({
       ...state,
-      product_quantity: Number(ev.target.value),
+      product_quantity: ev.target.value,
     }));
   };
 
@@ -81,7 +81,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
     ev.persist();
     setBody((state) => ({
       ...state,
-      discount: Number(ev.target.value),
+      discount: ev.target.value,
     }));
   };
 
@@ -133,7 +133,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
               <Field
                 name="product_quantity"
                 // type="number"
-                value={body?.product_quantity}
+                value={body?.product_quantity ?? ''}
                 onChange={handleQuantity}
               />
             </div>
@@ -157,7 +157,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
               <Field
                 name="discount"
                 // type="number"
-                value={body?.discount}
+                value={body?.discount ?? ''}
                 onChange={handleDiscount}
               />
             </div>
