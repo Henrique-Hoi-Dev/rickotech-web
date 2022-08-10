@@ -50,7 +50,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
       financial_id: financialBoxListOpen?.id,
       name_product: product?.name,
       price_product: product?.price,
-      product_quantity: Number(product?.quantity),
+      product_quantity: product?.quantity,
       discount: 0,
       status: 'open',
     }));
@@ -132,7 +132,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
               <label htmlFor="product_quantity">Quantidade</label>
               <Field
                 name="product_quantity"
-                type="number"
+                // type="number"
                 value={body?.product_quantity}
                 onChange={handleQuantity}
               />
@@ -156,7 +156,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
               <label htmlFor="discount">Desconto %</label>
               <Field
                 name="discount"
-                type="number"
+                // type="number"
                 value={body?.discount}
                 onChange={handleDiscount}
               />

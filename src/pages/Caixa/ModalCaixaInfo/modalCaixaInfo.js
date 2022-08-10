@@ -9,11 +9,11 @@ import {
 } from "../../../store/modules/financialBox/actions";
 import { Container } from "./styles";
 import { moneyMask } from "../../../util/mask";
+import { IconButton } from "@material-ui/core";
 
 import * as moment from 'moment';
 import CloseIcon from '@mui/icons-material/Close';
 import Modal from "../../../components/modal/modal";
-import { IconButton } from "@material-ui/core";
 
 const ModalCaixaInfo = ({ showModal, setShowModal, id }) => {
   const dispatch = useDispatch(); 
