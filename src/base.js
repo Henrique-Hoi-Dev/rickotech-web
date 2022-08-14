@@ -1,48 +1,36 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
+import { getStorage } from "firebase/storage";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-const { 
-  FB_API_KEY,
-  FB_AUTH_DOMAIN,
-  FB_PROJECT_ID,
-  FB_STORAGEBUCKET,
-  FB_MESSAGING_SENDER_ID,
-  FB_APP_ID,
-  FB_MEASUREMENT_ID
-} = process.env
+// const { 
+//   API_KEY,
+//   AUTH_DOMAIN,
+//   PROJECT_ID,
+//   STORAGEBUCKET,
+//   MESSAGING_SENDER_ID,
+//   APP_ID,
+//   MEASUREMENT_ID
+// } = process.env
+// console.log("strings de firebase", API_KEY)
 
 const firebaseConfig = {
-  apiKey: FB_API_KEY,
-  authDomain: FB_AUTH_DOMAIN,
-  projectId: FB_PROJECT_ID,
-  storageBucket: FB_STORAGEBUCKET,
-  messagingSenderId: FB_MESSAGING_SENDER_ID,
-  appId: FB_APP_ID,
-  measurementId: FB_MEASUREMENT_ID
+  apiKey: "AIzaSyATCdFr65iB-wUjo0twMlChSzseAv6rp8U",
+  authDomain: "rickotech-img.firebaseapp.com",
+  projectId: "rickotech-img",
+  storageBucket: "rickotech-img.appspot.com",
+  messagingSenderId: "8293119699",
+  appId: "1:8293119699:web:60b48e09c0f5900fcf0626",
+  measurementId: "G-Z57Z9K28BW"
+
+  // apiKey: API_KEY,
+  // authDomain: AUTH_DOMAIN,
+  // projectId: PROJECT_ID,
+  // storageBucket: STORAGEBUCKET,
+  // messagingSenderId: MESSAGING_SENDER_ID,
+  // appId: APP_ID,
+  // measurementId: MEASUREMENT_ID
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-
-// const firebaseConfig = {
-//   apiKey: FB_API_KEY,
-//   authDomain: FB_AUTH_DOMAIN,
-//   projectId: FB_PROJECT_ID,
-//   storageBucket: FB_STORAGEBUCKET,
-//   messagingSenderId: FB_MESSAGING_SENDER_ID,
-//   appId: FB_APP_ID,
-//   measurementId: FB_MEASUREMENT_ID
-// };
-
-// firebase.initializeApp(firebaseConfig);
-//analytics is optional for this tutoral 
-// firebase.analytics();
-
-// const storage = firebase.storage()
-
-// export  { storage, firebase as default }
+export const app = initializeApp(firebaseConfig);
+export const storage  = getStorage(app);

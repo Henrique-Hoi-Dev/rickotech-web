@@ -10,7 +10,7 @@ export function* updateProfile({ payload }) {
     const { 
       name, 
       email, 
-      avatar_id, 
+      avatar, 
       company_position, 
       cpf, 
       date_birth, 
@@ -20,11 +20,12 @@ export function* updateProfile({ payload }) {
     const profile = { 
       name, 
       email, 
-      avatar_id, 
+      avatar: payload.avatarUrl, 
       company_position,
       cpf, 
       date_birth, 
-      ...(rest.oldPassword ? rest : {}),};
+      ...(rest.oldPassword ? rest : {}),
+    };
                       
     const response = yield call(api.put, `/user/${payload.id}`, profile);
 

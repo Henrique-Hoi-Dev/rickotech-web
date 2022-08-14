@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input, Select } from '@rocketseat/unform';
 import { Link } from 'react-router-dom'
@@ -6,13 +6,17 @@ import { updateProfileRequest } from '../../store/modules/user/actions';
 import { Container } from './styles';
 
 import AvatarInput from './AvatarInput';
+import Progress from 'components/progress/progress';
 
 export default function Profile() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.user.profile);
 
+  const [progressPercent, setProgressPercent] = useState(0)
+  const [preview, setPreview] = useState('');
+
   function handleSubmit(data) {
-    dispatch(updateProfileRequest(data, profile.id));
+    dispatch(updateProfileRequest(preview, data, profile.id));
   }
 
   const cargos = [
@@ -25,7 +29,22 @@ export default function Profile() {
   return (
     <Container>
       <Form initialData={profile} onSubmit={handleSubmit}>
-        <AvatarInput name="avatar_id" />
+        <div className="avatar-update">
+          <AvatarInput
+            name="avatar_id"
+            preview={preview}
+            setPreview={setPreview}
+            setProgressPercent={setProgressPercent}
+          />
+          {progressPercent > 0 && (
+            <Progress
+              progressPercent={progressPercent}
+              setProgressPercent={setProgressPercent}
+            />
+          )}
+          <button type="submit">Salvar Imagem</button>
+        </div>
+
         <h2>Informações básicas</h2>
         <Input name="name" placeholder="Seu nome completo" />
         <Input name="email" placeholder="Seu endereço e-mail" />

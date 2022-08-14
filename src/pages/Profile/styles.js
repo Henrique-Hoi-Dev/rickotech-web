@@ -10,6 +10,32 @@ export const Container = styled.div`
     flex-direction: column;
     margin-top: 70px;
 
+    .avatar-update {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      width: 300px;
+
+      button {
+        margin: 4px 19px 0 19px;
+        width: 150px;
+        height: 44px;
+        color: #fff;
+        background: #8945de;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: background 0.2s;
+
+        &:hover {
+          transform: scale(1.1);
+          transition: all 0.5s;
+        }
+      }
+    }
+
     hr {
       border: 0;
       height: 1px;

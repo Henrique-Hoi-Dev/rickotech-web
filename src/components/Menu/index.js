@@ -146,17 +146,13 @@ export default function Home() {
         <Perfil>
           <nav>
             <h4>Profissional:</h4>
-            <strong>{data?.name}</strong>
+            <strong>{data?.name ?? "Desconhecido"}</strong>
             <h4>Cargo:</h4>
-            <strong>{data?.company_position ? data?.company_position : 'sem cargo'}</strong>
+            <strong>{data?.company_position ?? 'sem cargo'}</strong>
           </nav>
           <img
             onClick={handleClick}
-            src={
-              data?.avatar
-                ? data?.avatar.url
-                : 'https://i.pinimg.com/474x/a6/70/05/a67005e9bf90bc529088205650784bba.jpg'
-            }
+            src={data?.avatar ?? 'https://i.pinimg.com/474x/a6/70/05/a67005e9bf90bc529088205650784bba.jpg'}
             alt="avatar"
           />
           <Menu

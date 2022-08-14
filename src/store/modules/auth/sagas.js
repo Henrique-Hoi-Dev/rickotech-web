@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import history from '../../../services/history';
 import api from '../../../services/api';
 
-import { signInSuccess, signFailure } from './actions';
+import { signInSuccess, signUpSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }) {
   try {
@@ -38,6 +38,8 @@ export function* signUp({ payload }) {
       password,
       provider: true,
     });
+
+    yield put(signUpSuccess());
 
     history.push('/');
     toast.success('Cadastro concluído com sucesso!');
