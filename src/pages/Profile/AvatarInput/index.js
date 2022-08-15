@@ -16,6 +16,8 @@ export default function AvatarInput(
   useEffect(() => {
     if (avatar) {
       setPreview(avatar);
+    } else {
+      setPreview('https://i.pinimg.com/474x/a6/70/05/a67005e9bf90bc529088205650784bba.jpg')
     }
   }, [avatar, setPreview]);
 
@@ -26,8 +28,7 @@ export default function AvatarInput(
     const storageRef = ref(storage, `avatar/${file.name}`)
     const uploadTask = uploadBytesResumable(storageRef, file)
 
-    console.log("dentro da função", storageRef)
-      uploadTask.on("state_changed",
+    uploadTask.on("state_changed",
       (snapshot) => {
         const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
         setProgressPercent(progress)

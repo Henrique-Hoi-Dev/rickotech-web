@@ -12,7 +12,7 @@ import MouseOverPopover from '../../components/MouseOverPopover';
 
 const ProductList = ({ productList }) => {
   const dispatch = useDispatch();
-
+  console.log("Produtos", productList.map((res) => res.product_images.map(res => res.img)))
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
@@ -33,7 +33,8 @@ const ProductList = ({ productList }) => {
             <div className='more' >
               <MouseOverPopover 
                 children={
-                  <AddCircleSharpIcon onClick={() => setShowModal(!showModal) }
+                  <AddCircleSharpIcon 
+                    onClick={() => setShowModal(!showModal) }
                     sx={{ 
                       height: "2em", 
                       width: "2em", 
@@ -47,15 +48,15 @@ const ProductList = ({ productList }) => {
               />
             </div>
             <form className="form-table">
-              {[].concat(productList).map((produto) => (
+              {[].concat(productList).map((product) => (
                 <CardProduct 
-                  key={produto.id}
-                  id={produto.id} 
-                  name={produto.name}
-                  description={produto.description}
-                  valor={produto.price}
-                  quantidade={produto.quantity} 
-                  img={produto.avatar ? produto.avatar.url : (img)} 
+                  key={product.id}
+                  id={product.id} 
+                  name={product.name}
+                  description={product.description}
+                  valor={product.price}
+                  quantidade={product.quantity} 
+                  img={product.product_images ?? (img)} 
                 />
               ))}
             </form>
