@@ -15,10 +15,10 @@ export const Container = styled.div`
 
     display: grid;
     grid-template-columns: 110px;
-    grid-template-rows: 210px 70px 70px;
+    grid-template-rows: 280px 70px 70px;
     justify-content: center;
     grid-template-areas:
-        'avatar avatar '
+        'avatar avatar'
         'area-1  area-2'
         'area-3 area-4'
         'area-5 area-5';
@@ -64,8 +64,8 @@ export const Container = styled.div`
       justify-content: center;
 
       img {
-        border-radius: 3%; 
-        width: 230px;
+        /* border-radius: 3%;  */
+        width: 220px;
         height: 200px;
 
         margin-bottom: 10px;

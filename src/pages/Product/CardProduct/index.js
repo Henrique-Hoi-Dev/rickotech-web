@@ -6,6 +6,7 @@ import { Container } from './styles';
 import ModalRegistrationProduct from './modalRegistrationProduct/modalRegistrationProduct';
 import ModalDelete from './modalDelete/modalDelete';
 import MouseOverPopover from '../../../components/MouseOverPopover';
+import Carousel from 'components/carousel/carousel';
 
 export default function CardProduct(props) {
 
@@ -25,11 +26,15 @@ export default function CardProduct(props) {
     }
   }, [productId, setproductId]);
 
+  console.log("pros ",props?.img.map((res) => res))
+
   return (
     <Container>
       <div className="cards">
         <div className="avatar">
-          <img src={props.img} alt="img" />
+          <Carousel 
+            images={props?.img.map((res) => res)}
+          />
         </div>
         <hr />
         <div className="area-1">

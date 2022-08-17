@@ -169,7 +169,7 @@ const ListSales = ({ salesList }) => {
 
           {salesList?.length === 0 && (
             <div className="error">
-              <h3>Nenhum caixa aberto foi encontrado!</h3>
+              <h3>Nenhuma venda em aberto foi encontrado!</h3>
             </div>
           )}
         </div>

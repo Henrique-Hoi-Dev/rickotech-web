@@ -12,7 +12,7 @@ import MouseOverPopover from '../../components/MouseOverPopover';
 
 const ProductList = ({ productList }) => {
   const dispatch = useDispatch();
-  console.log("Produtos", productList.map((res) => res.product_images.map(res => res.img)))
+
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
@@ -25,42 +25,42 @@ const ProductList = ({ productList }) => {
   return (
     <Container>
       <Header title="Produtos"/>
-        <ModalRegistrationProduct
-          showModal={showModal}
-          setShowModal={setShowModal}
-        />
-          <div className="header-main">
-            <div className='more' >
-              <MouseOverPopover 
-                children={
-                  <AddCircleSharpIcon 
-                    onClick={() => setShowModal(!showModal) }
-                    sx={{ 
-                      height: "2em", 
-                      width: "2em", 
-                      cursor: "pointer", 
-                      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.5)",
-                      borderRadius: "50%" 
-                    }}
-                  />
-                }
-                text={"Novo Produto"}
+      <ModalRegistrationProduct
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
+      <div className="header-main">
+        <div className='more' >
+          <MouseOverPopover 
+            children={
+              <AddCircleSharpIcon 
+                onClick={() => setShowModal(!showModal) }
+                sx={{ 
+                  height: "2em", 
+                  width: "2em", 
+                  cursor: "pointer", 
+                  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.5)",
+                  borderRadius: "50%" 
+                }}
               />
-            </div>
-            <form className="form-table">
-              {[].concat(productList).map((product) => (
-                <CardProduct 
-                  key={product.id}
-                  id={product.id} 
-                  name={product.name}
-                  description={product.description}
-                  valor={product.price}
-                  quantidade={product.quantity} 
-                  img={product.product_images ?? (img)} 
-                />
-              ))}
-            </form>
-          </div>
+            }
+            text={"Novo Produto"}
+          />
+        </div>
+        <form className="form-table">
+          {[].concat(productList).map((product) => (
+            <CardProduct 
+              key={product.id}
+              id={product.id} 
+              name={product.name}
+              description={product.description}
+              valor={product.price}
+              quantidade={product.quantity} 
+              img={product.product_images ?? [img]} 
+            />
+          ))}
+        </form>
+      </div>
     </Container>
   );
 };
