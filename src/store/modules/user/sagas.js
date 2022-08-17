@@ -10,8 +10,6 @@ export function* updateProfile({ payload }) {
     const { 
       name, 
       email, 
-      avatar, 
-      company_position, 
       cpf, 
       date_birth, 
       ...rest 
@@ -19,14 +17,14 @@ export function* updateProfile({ payload }) {
 
     const profile = { 
       name, 
-      email, 
-      avatar: payload.avatarUrl, 
-      company_position,
+      email,
+      company_position: payload?.data?.company_position ? payload?.data?.company_position : null, 
       cpf, 
       date_birth, 
+      avatar: payload.avatarUrl,
       ...(rest.oldPassword ? rest : {}),
     };
-                      
+    
     const response = yield call(api.put, `/user/${payload.id}`, profile);
 
     toast.success('Perfil atualizado com sucesso!');
