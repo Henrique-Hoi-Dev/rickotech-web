@@ -25,6 +25,12 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased !important;
     background-color: #4D4C4C;
 
+    ::-webkit-scrollbar-thumb {
+      background-color: blue;    /* color of the scroll thumb */
+      border-radius: 20px;       /* roundness of the scroll thumb */
+      border: 3px solid orange;  /* creates padding around scroll thumb */
+    }
+
     .MuiMenuItem-root {
       width: 150px;
 

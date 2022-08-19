@@ -26,8 +26,6 @@ export default function CardProduct(props) {
     }
   }, [productId, setproductId]);
 
-  console.log("pros ",props?.img.map((res) => res))
-
   return (
     <Container>
       <div className="cards">

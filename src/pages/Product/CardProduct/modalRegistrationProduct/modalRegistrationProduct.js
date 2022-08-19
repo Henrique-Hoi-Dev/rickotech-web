@@ -8,23 +8,15 @@ import {
   UpdateProductRequest,
   resetFormularioProduct,
 } from '../../../../store/modules/product/actions';
-import { FcHighPriority } from 'react-icons/fc';
 import { Container } from './styles';
 import { formatMoney, unmaskMoney } from '../../../../util/mask';
 
-// import * as Yup from 'yup';
 import CloseIcon from '@mui/icons-material/Close';
 import AvatarInput from '../Avatarinput';
 import Modal from '../../../../components/modal/modal';
+import ProgressBar from '../../../../components/progress/progress';
 import InputAutocomplete from '../../../../components/select/select';
-
-// const schema = Yup.object().shape({
-//   name: Yup.string()
-//     .required('Este compo é obrigatório.')
-//     .max(100, 'No máximo 100 caracteres'),
-//   quantity: Yup.number().required('Este compo é obrigatório.'),
-//   price: Yup.number().required('Este compo é obrigatório.'),
-// });
+import ListImg from 'components/listImg/listImg';
 
 export default function ModalRegistrationProduct(
   {
@@ -36,7 +28,15 @@ export default function ModalRegistrationProduct(
   const dispatch = useDispatch();
 
   const { form } = useSelector((state) => state.product);
-  const [data, setData] = useState({})
+
+  const [progressPercent, setProgressPercent] = useState(0);
+  const [imgProduct, setImgProduct] = useState([])
+  const [imagensProduct, setImagensProduct] = useState([])
+  const [deleteId, setDeleteId] = useState(false)
+
+  const [data, setData] = useState({ })
+
+  const totalImagensPreview = imgProduct.concat(...imagensProduct ?? [])
 
   const descriptionList = [
     { value: 'novo', label: 'Novo' },
@@ -72,16 +72,33 @@ export default function ModalRegistrationProduct(
       description: form?.description,
       name: form?.name,
       quantity: form?.quantity,
-      avatar: form?.avatar?.id,
+      images: form?.product_images?.map(res => res.img).concat(...imgProduct.map(res => res.img)),
     }));
-  }, [form]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form, imgProduct]);
+
+  useEffect(() => {
+    setImagensProduct(form?.product_images)
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form, setData]);
+
+  useEffect(() => {
+    if (deleteId) {
+      setData((state) => ({
+        ...state,
+        images: totalImagensPreview?.map(res => res.img),
+      }));
+    }
+    setDeleteId(false)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deleteId]);
+
+  // console.log("No final array", totalImagensPreview, data)
 
   const handleSubmit = async () => {
     try {
-      data.avatar_id = parseInt(
-        document.getElementById('avatar').getAttribute('data-file')
-      );
-
       if (form.id) {
         dispatch(UpdateProductRequest({ product_id: form.id, values: data }));
         setShowModal(false);
@@ -109,7 +126,6 @@ export default function ModalRegistrationProduct(
         <div className="header-main">
           <Formik
             onSubmit={handleSubmit}
-            // validationSchema={schema}
             enableReinitialize={true}
             initialValues={form}
           >
@@ -184,7 +200,17 @@ export default function ModalRegistrationProduct(
                       <span>{formProps.errors.price}</span>
 
                       <ul>
-                        <AvatarInput name="avatar_id" id={form?.avatar?.id} />
+                        <AvatarInput 
+                          name="avatar_id" 
+                          setProgressPercent={setProgressPercent}
+                          setImgProduct={setImgProduct}
+                        />
+                        {progressPercent > 0 && (
+                          <ProgressBar
+                            progressPercent={progressPercent}
+                            setProgressPercent={setProgressPercent}
+                          />
+                        )}
                       </ul>
                     </div>
 
@@ -229,13 +255,17 @@ export default function ModalRegistrationProduct(
                     </div>
 
                     <footer className="buttons-container">
-                      <p>
-                        <FcHighPriority />
-                        Importante! <br />
-                        Preencha todos os dados
-                      </p>
-                      <button type="submit">Salvar</button>
+                      <ListImg 
+                        itemData={totalImagensPreview}
+                        setDeleteId={setDeleteId}
+                        setImagensProduct={setImagensProduct}
+                        setImgProduct={setImgProduct}
+                      />
                     </footer>
+                    <div className="camp5">
+                      <button type="submit">Salvar</button>
+                    </div>
+
                   </div>
                 </Form>
               );

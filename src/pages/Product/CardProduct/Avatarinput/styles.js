@@ -2,7 +2,18 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   align-self: center;
-  margin-bottom: 30px;
+  margin-bottom: -30px;
+
+  svg {
+    font-size: 100px;
+    background-color: transparent!important;
+    margin: 20px 0px 13px -29px!important;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+  }
 
   label {
     cursor: pointer;

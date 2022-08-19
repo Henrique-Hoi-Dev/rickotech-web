@@ -48,9 +48,9 @@ const ProductList = ({ productList }) => {
           />
         </div>
         <form className="form-table">
-          {[].concat(productList).map((product) => (
+          {[].concat(productList).map((product, i) => (
             <CardProduct 
-              key={product.id}
+              key={i}
               id={product.id} 
               name={product.name}
               description={product.description}

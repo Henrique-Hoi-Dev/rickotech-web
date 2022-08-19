@@ -63,11 +63,11 @@ function Carousel({ images }) {
         nextButton={
           <Button
             size="small"
-            sx={{ color: "#fff!important" }}
+            sx={{ color: "#fff!important", fontSize: "11px" }}
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
           >
-            Next
+            Próximo
             {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
             ) : (
@@ -80,14 +80,14 @@ function Carousel({ images }) {
             size="small" 
             onClick={handleBack} 
             disabled={activeStep === 0}
-            sx={{ color: "#fff!important" }}
+            sx={{ color: "#fff!important", fontSize: "11px" }}
           >
             {theme.direction === 'rtl' ? (
               <KeyboardArrowRight />
             ) : (
               <KeyboardArrowLeft />
             )}
-            Back
+            Voltar
           </Button>
         }
       />

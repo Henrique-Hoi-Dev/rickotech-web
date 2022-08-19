@@ -14,7 +14,7 @@ export const Container = styled.div`
       grid-template-areas:
         'name name name'
         'campo2  campo4 campo3'
-        'button button button';
+        'button button camp5';
     }
 
     .name-campo {
@@ -34,6 +34,12 @@ export const Container = styled.div`
     }
     .campo4 {
       grid-area: campo4;
+    }
+    .camp5 {
+      grid-area: camp5;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
     }
     .buttons-container {
       grid-area: button;
@@ -87,7 +93,7 @@ export const Container = styled.div`
   }
 
   button {
-    margin: 5px 18px 0;
+    margin: 5px -8px 0;
     height: 3rem;
     width: 12rem;
     background: #8945de;
@@ -141,12 +147,11 @@ export const Container = styled.div`
     footer {
       padding: 1.4rem;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
 
       svg {
         margin-right: 1rem !important;
-        background-color: #4d4c4c !important;
+        /* background-color: #4d4c4c !important; */
       }
     }
   }
