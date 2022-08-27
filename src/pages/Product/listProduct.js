@@ -35,6 +35,11 @@ const ProductList = ({ productList }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, fetch]);
 
+  useEffect(() => {
+    setFetch(true)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Container>
       <Header title=""/>
