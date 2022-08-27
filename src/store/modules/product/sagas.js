@@ -17,7 +17,14 @@ export function* createProduct({ payload }) {
     toast.success('Produto registrato com sucesso!');
     yield put(resetFormularioProduct());
 
-    const response = yield call(api.get, `/products`);
+    const query = {
+      limit: 3,
+      page: 1,
+      sort_field: "name",
+      sort_order: "ASC",
+    };
+
+    const response = yield call(api.get, `/products`, { params: query});
 
     yield put(findAllProductSuccess(response.data));
   } catch (err) {
@@ -28,7 +35,7 @@ export function* createProduct({ payload }) {
 
 export function* findAllProduct({ payload }) {
   try {
-    const response = yield call(api.get, `/products`, { params: payload?.data },);
+    const response = yield call(api.get, `/products`, { params: payload?.data });
 
     yield put(findAllProductSuccess(response.data));
   } catch (err) {
@@ -50,9 +57,16 @@ export function* getByIdProduct({ payload }) {
 
 export function* UpdateProduct({ payload }) {
   try {
+    const query = {
+      limit: 3,
+      page: 1,
+      sort_field: "name",
+      sort_order: "ASC",
+    };
+
     yield call(api.put, `/product/${payload.data.product_id}`, payload.data.values);
 
-    const response = yield call(api.get, `/products`);
+    const response = yield call(api.get, `/products`, { params: query });
 
     yield put(findAllProductSuccess(response.data));
     yield put(resetFormularioProduct());
@@ -66,9 +80,16 @@ export function* UpdateProduct({ payload }) {
 
 export function* deleteProduct({ payload }) {
   try {
+    const query = {
+      limit: 3,
+      page: 1,
+      sort_field: "name",
+      sort_order: "ASC",
+    };
+
     yield call(api.delete, `/product/${payload.data}`);
 
-    const response = yield call(api.get, `/products`);
+    const response = yield call(api.get, `/products`, { params: query });
 
     yield put(findAllProductSuccess(response.data));
 

@@ -14,10 +14,14 @@ export default function Paginations({ page, setPage, setFetch, pageQuantity }) {
         sx={{ 
           color: "#fff!important",
           fontSize: "15px",
-          "& .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root": {
+          "& .css-1xr9krm": {
             color: "#fff!important",
-            fontSize: "15px"
-          }
+            fontSize: "15px!important",
+          },
+          // "& .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root": {
+          //   color: "#fff!important",
+          //   fontSize: "15px"
+          // }
         }} 
         count={pageQuantity} 
         page={page} 
