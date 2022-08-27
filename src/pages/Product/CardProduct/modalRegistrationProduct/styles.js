@@ -6,11 +6,9 @@ export const Container = styled.div`
 
   .header-main {
     #container-input {
-      max-width: 1100px;
-
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 5px 200px 1fr;
+      grid-template-columns: 1fr 238px;
+      grid-template-rows: 0px 180px 300px;
       grid-template-areas:
         'name name name'
         'campo2  campo4 campo3'
@@ -167,6 +165,7 @@ export const Container = styled.div`
       footer {
         display: flex;
         flex-direction: column;
+        align-items: center;
       }
 
       p { 

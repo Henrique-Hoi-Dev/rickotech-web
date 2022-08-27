@@ -8,7 +8,6 @@ export const PageHeader = styled.div`
 
   .header {
     width: 100%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,7 +16,7 @@ export const PageHeader = styled.div`
     margin: 1rem auto -5rem;
 
     .img {
-      margin-right: 60px;
+      margin-right: 50px;
     }
 
     a {
@@ -47,6 +46,16 @@ export const PageHeader = styled.div`
       font: 600 3.1rem Archivo;
       line-height: 4.2rem;
       color: #ffffff;
+    }
+  }
+
+  @media (max-width: 1320px) {
+    .header {
+      margin: 6rem auto -5rem;
+
+      img {
+        display: none;
+      }
     }
   }
 `;

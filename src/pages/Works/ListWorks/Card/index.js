@@ -8,8 +8,6 @@ import moment from 'moment';
 import ModalDelete from 'pages/Sales/modalDelete/modalDelete';
 
 export default function Card({ props }) {
-console.log(props)
-
   const [showModal, setModalShow] = useState(false);
   const [worksDeleteId, setWorksDeleteId] = useState('')
 

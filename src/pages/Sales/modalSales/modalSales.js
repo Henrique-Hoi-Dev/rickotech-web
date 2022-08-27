@@ -30,6 +30,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
   const { financialBoxListOpen } = useSelector((state) => state.financialBox);
   const { profile } = useSelector((state) => state.user);
   const { productList } = useSelector((state) => state.product);
+  console.log(productList)
 
   const product = useSelector((state) => state.product.form);
 
@@ -112,7 +113,7 @@ const ModalSales = ({ showModal, setShowModal }) => {
             <div className="status">
               <label htmlFor="name_product">Produtos</label>
               <InputAutocomplete
-                options={productList ?? []}
+                options={productList?.products ?? []}
                 getOptionLabel={(option) => option.name}
                 isOptionEqualToValue={(option, value) => option.id === value.id}
                 onChange={(event, newValue) => {

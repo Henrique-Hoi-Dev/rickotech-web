@@ -98,8 +98,6 @@ export default function ModalRegistrationProduct(
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deleteId]);
 
-  // console.log("No final array", totalImagensPreview )
-
   const handleSubmit = async () => {
     try {
       if (form?.id) {
