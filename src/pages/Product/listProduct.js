@@ -86,6 +86,7 @@ const ProductList = ({ productList }) => {
             page={page}
             setPage={setPage}
             setFetch={setFetch}
+            pageQuantity={productList?.totalPages}
           />
         </div>
       </div>
