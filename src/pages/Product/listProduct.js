@@ -64,15 +64,15 @@ const ProductList = ({ productList }) => {
           <Typography>Page: {page}</Typography>
         </div>
         <form className="form-table">
-          {productList?.products.map((product, i) => (
+          {productList?.products?.map((product, i) => (
             <CardProduct 
               key={i}
-              id={product.id} 
-              name={product.name}
-              description={product.description}
-              valor={product.price}
-              quantidade={product.quantity} 
-              img={product.product_images ?? [img]} 
+              id={product?.id} 
+              name={product?.name}
+              description={product?.description}
+              valor={product?.price}
+              quantidade={product?.quantity} 
+              img={product?.product_images ?? [img]} 
             />
           ))}
         </form>
@@ -90,7 +90,7 @@ const ProductList = ({ productList }) => {
 
 const mapStateToProps = (state) => {
   return {
-    productList: state.product.productList ? state.product.productList : [],
+    productList: state?.product?.productList ? state?.product?.productList : [],
   };
 };
 

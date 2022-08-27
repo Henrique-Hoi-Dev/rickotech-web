@@ -72,7 +72,7 @@ export default function ModalRegistrationProduct(
       description: form?.description,
       name: form?.name,
       quantity: form?.quantity,
-      images: form?.product_images?.map(res => res.img).concat(...imgProduct.map(res => res.img)),
+      images: form?.product_images?.map(res => res.img)?.concat(...imgProduct?.map(res => res.img)),
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form, imgProduct]);
@@ -83,7 +83,7 @@ export default function ModalRegistrationProduct(
   }, [form]);
 
   useEffect(() => {
-    setTotalImagensPreview(imagensProduct.concat(...imgProduct))
+    setTotalImagensPreview(imagensProduct?.concat(...imgProduct))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imagensProduct, imgProduct, setTotalImagensPreview]);
 
@@ -102,7 +102,7 @@ export default function ModalRegistrationProduct(
 
   const handleSubmit = async () => {
     try {
-      if (form.id) {
+      if (form?.id) {
         dispatch(UpdateProductRequest({ product_id: form.id, values: data }));
         setShowModal(false);
       } else {

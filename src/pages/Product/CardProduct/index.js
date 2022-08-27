@@ -31,7 +31,7 @@ export default function CardProduct(props) {
       <div className="cards">
         <div className="avatar">
           <Carousel 
-            images={props?.img.map((res) => res)}
+            images={props?.img?.map((res) => res)}
           />
         </div>
         <hr />
