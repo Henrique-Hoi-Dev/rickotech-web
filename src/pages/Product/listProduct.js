@@ -64,7 +64,7 @@ const ProductList = ({ productList }) => {
           <Typography>Page: {page}</Typography>
         </div>
         <form className="form-table">
-          {[].concat(productList?.products).map((product, i) => (
+          {productList?.products.map((product, i) => (
             <CardProduct 
               key={i}
               id={product.id} 
