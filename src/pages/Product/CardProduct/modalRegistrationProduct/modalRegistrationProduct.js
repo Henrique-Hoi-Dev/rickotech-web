@@ -32,11 +32,11 @@ export default function ModalRegistrationProduct(
   const [progressPercent, setProgressPercent] = useState(0);
   const [imgProduct, setImgProduct] = useState([])
   const [imagensProduct, setImagensProduct] = useState([])
+  const [totalImagensPreview, setTotalImagensPreview] = useState()
+
   const [deleteId, setDeleteId] = useState(false)
 
   const [data, setData] = useState({ })
-
-  const totalImagensPreview = imgProduct.concat(...imagensProduct ?? [])
 
   const descriptionList = [
     { value: 'novo', label: 'Novo' },
@@ -74,15 +74,18 @@ export default function ModalRegistrationProduct(
       quantity: form?.quantity,
       images: form?.product_images?.map(res => res.img).concat(...imgProduct.map(res => res.img)),
     }));
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form, imgProduct]);
 
   useEffect(() => {
     setImagensProduct(form?.product_images)
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [form, setData]);
+  }, [form]);
+
+  useEffect(() => {
+    setTotalImagensPreview(imagensProduct.concat(...imgProduct))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [imagensProduct, imgProduct, setTotalImagensPreview]);
 
   useEffect(() => {
     if (deleteId) {
@@ -95,7 +98,7 @@ export default function ModalRegistrationProduct(
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deleteId]);
 
-  // console.log("No final array", totalImagensPreview, data)
+  // console.log("No final array", totalImagensPreview )
 
   const handleSubmit = async () => {
     try {
@@ -258,8 +261,7 @@ export default function ModalRegistrationProduct(
                       <ListImg 
                         itemData={totalImagensPreview}
                         setDeleteId={setDeleteId}
-                        setImagensProduct={setImagensProduct}
-                        setImgProduct={setImgProduct}
+                        setTotalImagensPreview={setTotalImagensPreview}
                       />
                     </footer>
                     <div className="camp5">

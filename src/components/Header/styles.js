@@ -17,13 +17,13 @@ export const PageHeader = styled.div`
     margin: 1rem auto -5rem;
 
     .img {
-      margin-right: 30px;
+      margin-right: 60px;
     }
 
     a {
       height: 3.2rem;
       transition: opacity 0.2s;
-      margin-left: 10px;
+      margin-left: 60px;
 
       :hover {
         opacity: 0.6;

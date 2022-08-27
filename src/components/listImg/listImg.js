@@ -3,11 +3,10 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function ListImg({ itemData, setDeleteId, setImgProduct, setImagensProduct }) {
+export default function ListImg({ itemData, setDeleteId, setTotalImagensPreview}) {
   const handleDelete = (ev, id) => {
     ev.preventDefault();
-    setImgProduct((res) => res.filter((_, index) => index !== id));
-    setImagensProduct((res) => res.filter((_, index) => index !== id));
+    setTotalImagensPreview((res) => res?.filter((_, index) => index !== id));
     setDeleteId(true)
   };
 

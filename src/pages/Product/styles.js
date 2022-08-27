@@ -10,9 +10,18 @@ export const Container = styled.div`
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     border-radius: 0.8rem;
-    margin: -3rem auto 3.2rem;
+    margin: -8rem auto 3.2rem;
     padding-top: 1rem;
     overflow: hidden;
+
+    .page {
+      margin-left: 40px;
+      color: #fff;
+
+      p {
+        font-size: 1.3rem;
+      }
+    }
 
     .more {
       display: flex;
@@ -28,13 +37,21 @@ export const Container = styled.div`
         }
       }
     }
-  }
 
-  .form-table {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 50px;
+    .form-table {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+
+      margin-bottom: 30px;
+      margin-top: -50px;
+    }
   }
 
   @media screen and (max-width: 600px) {}

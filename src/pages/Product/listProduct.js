@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { findAllProductRequest  } from '../../store/modules/product/actions';
 import { Container } from './styles';
+import { Typography } from '@material-ui/core';
 
 import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
 import img from '../../assets/empty.png'
@@ -9,28 +10,40 @@ import ModalRegistrationProduct from './CardProduct/modalRegistrationProduct/mod
 import Header from '../../components/Header';
 import CardProduct from './CardProduct';
 import MouseOverPopover from '../../components/MouseOverPopover';
+import Paginations from 'components/pagination/pagination';
 
 const ProductList = ({ productList }) => {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false)
+  const [fetch, setFetch] = useState(false)
+
+  const [page, setPage] = useState(1);
+
+  const INITIAL_STATE_QUERY = {
+    limit: 3,
+    page: page,
+    sort_field: "name",
+    sort_order: "ASC",
+  };
 
   useEffect(() => {
-    function onLoad() {
-      dispatch(findAllProductRequest());
+    if (fetch) {
+      dispatch(findAllProductRequest(INITIAL_STATE_QUERY));
     }
-    onLoad();
-  }, [dispatch]);
+    setFetch(false)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, fetch]);
 
   return (
     <Container>
-      <Header title="Produtos"/>
+      <Header title=""/>
       <ModalRegistrationProduct
         showModal={showModal}
         setShowModal={setShowModal}
       />
       <div className="header-main">
-        <div className='more' >
+        <div className='more'>
           <MouseOverPopover 
             children={
               <AddCircleSharpIcon 
@@ -47,8 +60,11 @@ const ProductList = ({ productList }) => {
             text={"Novo Produto"}
           />
         </div>
+        <div className="page">
+          <Typography>Page: {page}</Typography>
+        </div>
         <form className="form-table">
-          {[].concat(productList).map((product, i) => (
+          {[].concat(productList?.products).map((product, i) => (
             <CardProduct 
               key={i}
               id={product.id} 
@@ -60,6 +76,13 @@ const ProductList = ({ productList }) => {
             />
           ))}
         </form>
+        <div className="pagination">
+          <Paginations 
+            page={page}
+            setPage={setPage}
+            setFetch={setFetch}
+          />
+        </div>
       </div>
     </Container>
   );

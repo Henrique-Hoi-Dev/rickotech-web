@@ -26,9 +26,9 @@ export function* createProduct({ payload }) {
   }
 }
 
-export function* findAllProduct() {
+export function* findAllProduct({ payload }) {
   try {
-    const response = yield call(api.get, `/products`);
+    const response = yield call(api.get, `/products`, { params: payload?.data },);
 
     yield put(findAllProductSuccess(response.data));
   } catch (err) {
